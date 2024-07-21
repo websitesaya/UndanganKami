@@ -1,0 +1,222 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', sans-serif;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('backround.jpg') no-repeat center center/cover;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 786px) {
+    .content {
+        padding: 10px;
+        max-width: 95%;
+    }
+
+    .typing-text {
+        font-size: 2em;
+    }
+
+    .photo-slider {
+        height: auto;
+    }
+
+    .map-container iframe {
+        height: 200px;
+    }
+
+    .photo-caption-title {
+        font-size: 1em;
+    }
+
+    .photo-caption-description {
+        font-size: 0.9em;
+    }
+
+    .photos img {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .typing-text {
+        font-size: 1.5em;
+    }
+
+    .photo-caption-title {
+        font-size: 0.9em;
+    }
+
+    .photo-caption-description {
+        font-size: 0.8em;
+    }
+
+    .photos img {
+        max-width: 100%;
+    }
+}
+
+/* Existing CSS */
+
+.snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1; /* Make sure snow is behind other content */
+}
+
+.snowflake {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    opacity: 0.8;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-100px);
+    }
+    to {
+        transform: translateY(calc(100vh + 10px));
+    }
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(3px);
+}
+
+.content {
+    background: url('backround3.jpg') no-repeat center center/cover;
+    padding: 40px; /* Menambah padding untuk memberikan ruang lebih */
+    border-radius: 20px;
+    text-align: center;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* Menghindari konten keluar dari area konten */
+}
+
+h1, h2 {
+    color: #d95f5f;
+}
+
+.typing-text {
+    border-right: 3px solid #d95f5f; /* Garis berkedip di akhir teks */
+    white-space: nowrap; /* Mencegah teks dari pembungkusan */
+    overflow: hidden; /* Menyembunyikan teks yang melampaui batas elemen */
+    font-family: 'Courier New', Courier, monospace; /* Font monospaced untuk efek mesin ketik */
+    font-size: 2.5em; /* Ukuran font sesuai kebutuhan */
+    color: #d95f5f;
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    margin-top: 20px; /* Menambah margin atas untuk menurunkan teks */
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #d95f5f; }
+}
+
+.map-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.map-container iframe {
+    width: 100%;
+    max-width: 600px; /* Ukuran maksimum peta diperbesar sedikit */
+    height: 300px; /* Tinggi peta sedikit diperbesar */
+    border: 0;
+}
+
+.names {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2.5em;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #d95f5f;
+}
+
+.photo-slider {
+    overflow-y: auto;
+    height: 150px; /* Menurunkan tinggi slider untuk memberikan lebih banyak ruang pada judul */
+    margin: 20px 0;
+    position: relative; /* Ensure relative positioning for absolute elements inside */
+}
+
+.photos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-item {
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.photos img {
+    width: auto;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.photos img:hover {
+    transform: scale(1.1);
+}
+
+.photo-caption-title {
+    font-weight: bold;
+    color: red;
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.photo-caption-description {
+    font-size: 1em;
+    color: #333;
+}
+
+.slide-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bank-info, .music {
+    margin-top: 20px;
+}
+
+.bank-info p, .music p {
+    margin: 5px 0;
+}
+
+.music audio {
+    margin-top: 10px;
+}
